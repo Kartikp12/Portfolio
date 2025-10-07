@@ -33,17 +33,16 @@ const About = () => {
           
 
           <div className="border border-blue-300 rounded-lg p-5 shadow hover:shadow-lg transition duration-300">
-            <a href="https://github.com/Kartikp12/TokenTalk" className="flex flex-col items-center">
+            <a href="https://github.com/Kartikp12/Block-Explorer" className="flex flex-col items-center">
               <Image
-                src="/token-talk.jpeg"
-                alt="Token Talk Logo"
+                src="/block-explorer-logo.png"
+                alt="Block Explorer Logo"
                 width={100}
                 height={100}
                 className="mb-4 rounded"
               />
-              <p className="text-sm text-gray-600 font-medium">
-                <span className="font-semibold text-blue-600">Token Talk:</span> Online consultation with money streaming
-              </p>
+              <p className="text-sm text-gray-600 font-medium"/>
+                <span className="font-semibold text-blue-600">Block-Explorer</span>Explore latest Ethereum Blocks with transactions as well as wallet transactions by address.
             </a>
           </div>
 

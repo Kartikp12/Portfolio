@@ -4,7 +4,7 @@ import { FaFileDownload } from "react-icons/fa";
 
 const page = () => {
   return (
-    <div className="p-6 md:p-12 font-poppins">
+    <div className="p-6 md:p-12 font-poppins h-120">
       <div className="bio mb-8">
         <h1 className="text-3xl md:text-4xl font-semibold text-gray-900 leading-relaxed tracking-wide">
           Hello, I am <span className="text-blue-600">Kartik</span> — a Front-End Web Developer specializing in modern JavaScript frameworks like <span className="font-bold text-gray-800">React</span> and <span className="font-bold text-gray-800">Next.js</span>. I create fast, responsive, and user-friendly web applications that deliver seamless digital experiences.
