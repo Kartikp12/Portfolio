@@ -44,9 +44,10 @@ const HomePage = () => {
           {/* Bio Section */}
           <div className="max-w-4xl mx-auto mb-12">
             <div className="bg-white/70 dark:bg-gray-800/70 backdrop-blur-lg rounded-2xl p-8 sm:p-10 shadow-2xl border border-gray-200 dark:border-gray-700">
-              <p className="text-lg sm:text-xl text-gray-700 dark:text-gray-300 leading-relaxed text-center">
-                Hello, I am Kartik — a Front-End Web Developer with a strong specialization in modern JavaScript frameworks such as <span className="font-semibold">React</span> and <span className="font-semibold">Next.js</span>, along with hands-on experience in <span className="font-semibold">blockchain</span> and <span className="font-semibold">Web3</span> development. I build fast, responsive, and intuitive web applications and blockchain-based platforms, focusing on performance, real-time data, and seamless user experiences.
-              </p>
+  <p className="text-lg sm:text-xl text-gray-700 dark:text-gray-300 leading-relaxed text-center">
+  Front-end developer with hands-on experience in blockchain, focused on on-chain analytics, trading intelligence, and Web3 product development. I’ve built blockchain explorers, smart-money analytics dashboards, and crypto marketplace tools, and I’m looking to work on real, production-level blockchain products.
+</p>
+
             </div>
           </div>
 
@@ -72,7 +73,7 @@ const HomePage = () => {
           {/* CTA Section */}
           <div className="text-center">
             <Link
-              href="https://docs.google.com/document/d/1m_dXoEklzBTn3yFETHRWkozqaKPVK14oc4SdYLLlt6A/edit?tab=t.0"
+              href="https://docs.google.com/document/d/1PMNwpby3AQYOQHQMYMsWYO8VH8VihQ_thKun1yViS5Y/edit?tab=t.0"
               target="_blank"
               rel="noopener noreferrer"
               className="group inline-flex items-center gap-4 bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 hover:from-blue-700 hover:via-indigo-700 hover:to-purple-700 text-white px-8 py-4 rounded-full shadow-2xl hover:shadow-blue-500/50 transition-all duration-300 transform hover:scale-105 font-bold text-lg"
