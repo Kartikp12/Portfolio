@@ -267,7 +267,7 @@ export default function About() {
                   ["01", "Applied AI"],
                   ["02", "Full-stack Web"],
                   ["03", "On-chain Data"],
-                ].map(([num, label], index) => (
+                ].map(([num, label]) => (
                   <motion.div
                     key={num}
                     whileHover={reduceMotion ? undefined : { y: -5, scale: 1.03 }}
