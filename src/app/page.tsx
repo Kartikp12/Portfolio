@@ -1,92 +1,435 @@
-'use client'
 
-import React from 'react'
-import { FaFileDownload, FaCode, FaRocket, FaBrain } from "react-icons/fa"
-import { HiSparkles } from "react-icons/hi"
-import Link from 'next/link'
+"use client";
 
-const HomePage = () => {
+import React from "react";
+import {
+  FaArrowRight,
+  FaBrain,
+  FaCode,
+  FaEnvelope,
+  FaExternalLinkAlt,
+  FaGithub,
+  FaLayerGroup,
+  FaLinkedin,
+  FaNetworkWired,
+  FaTerminal,
+} from "react-icons/fa";
+import { HiSparkles } from "react-icons/hi";
+
+const projects = [
+  {
+    number: "01",
+    title: "AI Research Agent",
+    category: "APPLIED AI",
+    description:
+      "A research workflow project exploring query planning, web search, evidence extraction, and citation-based answers.",
+    tags: ["LLMs", "Web Search", "AI Agents"],
+    icon: <FaBrain />,
+    accent: "blue",
+    github: "https://github.com/Kartikp12/AI-Research-Agent",
+    demo: "",
+  },
+  {
+    number: "02",
+    title: "AI Wallet Analyst",
+    category: "AI + BLOCKCHAIN",
+    description:
+      "An AI-powered wallet intelligence project focused on on-chain activity, transaction analysis, and natural-language insights.",
+    tags: ["Next.js", "Ollama", "Blockchain"],
+    icon: <FaNetworkWired />,
+    accent: "violet",
+    github: "https://github.com/Kartikp12/ai-wallet-analyst",
+    demo: "",
+  },
+  {
+    number: "03",
+    title: "MediGuide AI",
+    category: "AI APPLICATION",
+    description:
+      "A healthcare assistant prototype designed around helpful conversations and safety-aware handling of medical questions.",
+    tags: ["AI Safety", "Next.js", "Voice UX"],
+    icon: <FaBrain />,
+    accent: "cyan",
+    github: "https://github.com/Kartikp12/MediGuide-AI",
+    demo: "",
+  },
+  {
+    number: "04",
+    title: "Bubblemaps XDC",
+    category: "BLOCKCHAIN ANALYTICS",
+    description:
+      "An interactive blockchain analytics project for exploring token holders, wallet relationships, and transaction connections.",
+    tags: ["XDC", "Cytoscape.js", "APIs"],
+    icon: <FaNetworkWired />,
+    accent: "emerald",
+    github: "",
+    demo: "https://bubblemaps-xdc.vercel.app/",
+  },
+];
+
+const skillGroups = [
+  {
+    icon: <FaBrain />,
+    title: "Applied AI",
+    description: "LLM applications, AI agents, prompt design, local models",
+    items: ["Ollama", "Qwen", "RAG concepts", "Tool Calling"],
+  },
+  {
+    icon: <FaCode />,
+    title: "Web Engineering",
+    description: "Building interactive web applications and APIs",
+    items: ["JavaScript", "React", "Next.js", "Node.js", "Tailwind CSS"],
+  },
+  {
+    icon: <FaNetworkWired />,
+    title: "Blockchain & Data",
+    description: "On-chain data, wallet analytics, and visual exploration",
+    items: ["Ethereum", "XDC", "Dune Analytics", "SQL", "Blockchain APIs"],
+  },
+];
+
+function SectionLabel({ children }: { children: React.ReactNode }) {
   return (
-    <div className="min-h-screen">
-      {/* Hero Section */}
-      <section className="relative overflow-hidden pt-20 pb-32 px-4 sm:px-6 lg:px-8">
-        {/* Animated Background Elements */}
-        <div className="absolute inset-0 overflow-hidden pointer-events-none">
-          <div className="absolute top-20 left-10 w-72 h-72 bg-blue-400/20 rounded-full blur-3xl animate-pulse"></div>
-          <div className="absolute bottom-20 right-10 w-96 h-96 bg-indigo-400/20 rounded-full blur-3xl animate-pulse delay-1000"></div>
+    <div className="mb-4 flex items-center gap-2 text-sm font-semibold uppercase tracking-[0.2em] text-blue-600 dark:text-blue-400">
+      <span className="h-px w-7 bg-current" />
+      {children}
+    </div>
+  );
+}
+
+export default function HomePage() {
+  return (
+    <main className="overflow-hidden bg-white text-slate-900 dark:bg-[#070B14] dark:text-slate-100">
+      <section className="relative isolate overflow-hidden bg-[#080D19] text-white">
+        <div
+          aria-hidden="true"
+          className="pointer-events-none absolute inset-0 opacity-30"
+          style={{
+            backgroundImage:
+              "linear-gradient(rgba(148,163,184,0.08) 1px, transparent 1px), linear-gradient(90deg, rgba(148,163,184,0.08) 1px, transparent 1px)",
+            backgroundSize: "48px 48px",
+            maskImage: "linear-gradient(to bottom, black, transparent 90%)",
+          }}
+        />
+        <div className="hero-orb hero-orb-blue" />
+        <div className="hero-orb hero-orb-purple" />
+
+        <div className="relative mx-auto grid min-h-[680px] max-w-7xl items-center gap-14 px-5 py-24 sm:px-8 lg:grid-cols-[1.1fr_0.9fr] lg:px-12 lg:py-32">
+          <div className="fade-up">
+            <div className="mb-7 inline-flex items-center gap-2 rounded-full border border-blue-400/20 bg-blue-400/[0.08] px-4 py-2 text-sm text-blue-200">
+              <span className="relative flex h-2 w-2">
+                <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-60" />
+                <span className="relative inline-flex h-2 w-2 rounded-full bg-emerald-400" />
+              </span>
+              <HiSparkles className="text-base" />
+              Software Engineer · Applied AI
+            </div>
+
+            <p className="mb-4 text-sm font-medium tracking-wide text-slate-400">
+              Hi, I&apos;m Kartik Patil.
+            </p>
+            <h1 className="max-w-3xl text-4xl font-bold leading-[1.12] tracking-tight sm:text-5xl lg:text-6xl xl:text-7xl">
+              Building useful products with{" "}
+              <span className="gradient-text">AI and data.</span>
+            </h1>
+            <p className="mt-7 max-w-xl text-base leading-8 text-slate-300 sm:text-lg">
+              I build web applications, explore AI-powered workflows, and work
+              with blockchain data. I&apos;m focused on turning practical ideas
+              into useful, well-engineered software.
+            </p>
+
+            <div className="mt-9 flex flex-wrap gap-3">
+              <a
+                href="#projects"
+                className="group inline-flex items-center gap-3 rounded-xl bg-blue-500 px-6 py-3.5 font-semibold text-white shadow-lg shadow-blue-500/20 transition duration-300 hover:-translate-y-1 hover:bg-blue-400"
+              >
+                Explore my work <FaArrowRight className="transition-transform duration-300 group-hover:translate-x-1" />
+              </a>
+              <a
+                href="mailto:kartikpatil1006@gmail.com"
+                className="inline-flex items-center gap-3 rounded-xl border border-white/15 bg-white/[0.04] px-6 py-3.5 font-semibold text-white transition duration-300 hover:-translate-y-1 hover:border-white/30 hover:bg-white/[0.08]"
+              >
+                <FaEnvelope /> Get in touch
+              </a>
+            </div>
+
+            <div className="mt-10 flex flex-wrap items-center gap-x-6 gap-y-3 text-sm text-slate-400">
+              <a
+                href="https://github.com/Kartikp12"
+                target="_blank"
+                rel="noreferrer"
+                className="inline-flex items-center gap-2 transition hover:text-white"
+              >
+                <FaGithub className="text-lg" /> GitHub <FaExternalLinkAlt className="text-[10px]" />
+              </a>
+              <a
+                href="https://www.linkedin.com/"
+                target="_blank"
+                rel="noreferrer"
+                className="inline-flex items-center gap-2 transition hover:text-white"
+              >
+                <FaLinkedin className="text-lg" /> LinkedIn <FaExternalLinkAlt className="text-[10px]" />
+              </a>
+              <span className="hidden h-4 w-px bg-white/20 sm:block" />
+              <span>India · Open to learning and collaboration</span>
+            </div>
+          </div>
+
+          <div className="fade-up fade-up-delay relative mx-auto w-full max-w-lg">
+            <div className="absolute -inset-6 rounded-[2rem] bg-blue-500/10 blur-3xl" />
+            <div className="relative overflow-hidden rounded-2xl border border-white/10 bg-[#0D1422]/90 shadow-2xl shadow-black/30 backdrop-blur-xl">
+              <div className="flex items-center justify-between border-b border-white/10 px-5 py-4">
+                <div className="flex items-center gap-2">
+                  <span className="h-2.5 w-2.5 rounded-full bg-red-400" />
+                  <span className="h-2.5 w-2.5 rounded-full bg-amber-400" />
+                  <span className="h-2.5 w-2.5 rounded-full bg-emerald-400" />
+                </div>
+                <div className="flex items-center gap-2 text-xs text-slate-400">
+                  <FaTerminal /> building.md
+                </div>
+              </div>
+              <div className="space-y-6 p-6 sm:p-8">
+                <div>
+                  <p className="mb-3 text-xs uppercase tracking-[0.2em] text-slate-500">
+                    Current interests
+                  </p>
+                  <h2 className="text-xl font-semibold text-white sm:text-2xl">
+                    From a question
+                    <br />
+                    <span className="text-blue-400">to useful insights.</span>
+                  </h2>
+                </div>
+                <div className="space-y-3 font-mono text-sm">
+                  {[
+                    ["01", "Understand", "Define the problem and plan the workflow."],
+                    ["02", "Build", "Connect models, APIs, and real data."],
+                    ["03", "Improve", "Test outputs and refine the experience."],
+                  ].map(([number, title, description]) => (
+                    <div
+                      key={number}
+                      className="rounded-xl border border-white/10 bg-white/[0.03] p-4"
+                    >
+                      <p className="text-blue-300">
+                        <span className="text-blue-400">{number}</span> / {title}
+                      </p>
+                      <p className="mt-1 text-slate-200">{description}</p>
+                    </div>
+                  ))}
+                </div>
+                <div className="flex flex-wrap gap-2 border-t border-white/10 pt-5">
+                  {["Applied AI", "Web Engineering", "Blockchain Data"].map((item) => (
+                    <span
+                      key={item}
+                      className="rounded-full border border-white/10 px-3 py-1.5 text-xs text-slate-300"
+                    >
+                      {item}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
 
-        <div className="relative max-w-6xl mx-auto">
-          <div className="text-center mb-12">
-            {/* Greeting Badge */}
-            <div className="inline-flex items-center gap-2 px-4 py-2 mb-6 bg-gradient-to-r from-blue-100 to-indigo-100 dark:from-blue-900/30 dark:to-indigo-900/30 rounded-full border border-blue-200 dark:border-blue-800">
-              <HiSparkles className="text-blue-600 dark:text-blue-400" />
-              <span className="text-sm font-semibold text-blue-700 dark:text-blue-300">Welcome to My Portfolio</span>
-            </div>
+        <a
+          href="#projects"
+          aria-label="Scroll to projects"
+          className="absolute bottom-6 left-1/2 hidden -translate-x-1/2 animate-bounce text-slate-500 transition hover:text-white sm:block"
+        >
+          <span className="text-xs uppercase tracking-[0.2em]">Scroll</span>
+          <FaArrowRight className="mx-auto mt-2 rotate-90" />
+        </a>
+      </section>
 
-            {/* Main Heading */}
-            <h1 className="text-5xl sm:text-6xl lg:text-7xl font-extrabold mb-6 bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 dark:from-blue-400 dark:via-indigo-400 dark:to-purple-400 bg-clip-text text-transparent leading-tight">
-              Hello, I&apos;m <span className="block mt-2">Kartik</span>
-            </h1>
-
-            {/* Subtitle */}
-            <p className="text-xl sm:text-2xl text-gray-600 dark:text-gray-300 mb-4 font-medium">
-              Front-End Web Developer
-            </p>
-            <div className="flex flex-wrap justify-center gap-3 mb-8">
-              <span className="px-4 py-1 bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300 rounded-full text-sm font-semibold">React</span>
-              <span className="px-4 py-1 bg-indigo-100 dark:bg-indigo-900/30 text-indigo-700 dark:text-indigo-300 rounded-full text-sm font-semibold">Next.js</span>
-              <span className="px-4 py-1 bg-purple-100 dark:bg-purple-900/30 text-purple-700 dark:text-purple-300 rounded-full text-sm font-semibold">Web3</span>
-              <span className="px-4 py-1 bg-pink-100 dark:bg-pink-900/30 text-pink-700 dark:text-pink-300 rounded-full text-sm font-semibold">Blockchain</span>
+      <section id="projects" className="relative scroll-mt-20 px-5 py-24 sm:px-8 lg:px-12 lg:py-32">
+        <div className="mx-auto max-w-7xl">
+          <div className="mb-12 flex flex-col justify-between gap-5 md:flex-row md:items-end">
+            <div>
+              <SectionLabel>Selected work</SectionLabel>
+              <h2 className="max-w-2xl text-3xl font-bold tracking-tight sm:text-4xl lg:text-5xl">
+                Projects built to explore{" "}
+                <span className="text-blue-600 dark:text-blue-400">real problems.</span>
+              </h2>
             </div>
-          </div>
-
-          {/* Bio Section */}
-          <div className="max-w-4xl mx-auto mb-12">
-            <div className="bg-white/70 dark:bg-gray-800/70 backdrop-blur-lg rounded-2xl p-8 sm:p-10 shadow-2xl border border-gray-200 dark:border-gray-700">
-  <p className="text-lg sm:text-xl text-gray-700 dark:text-gray-300 leading-relaxed text-center">
-  Front-end developer with hands-on experience in blockchain, focused on on-chain analytics, trading intelligence, and Web3 product development. I’ve built blockchain explorers, smart-money analytics dashboards, and crypto marketplace tools, and I’m looking to work on real, production-level blockchain products.
-</p>
-
-            </div>
-          </div>
-
-          {/* Features Grid */}
-          <div className="grid md:grid-cols-3 gap-6 mb-12 max-w-5xl mx-auto">
-            <div className="bg-gradient-to-br from-blue-50 to-indigo-50 dark:from-blue-900/20 dark:to-indigo-900/20 rounded-xl p-6 border border-blue-200 dark:border-blue-800 hover:shadow-xl transition-all duration-300 hover:scale-105">
-              <FaCode className="text-4xl text-blue-600 dark:text-blue-400 mb-4" />
-              <h3 className="text-xl font-bold text-gray-800 dark:text-gray-200 mb-2">Clean Code</h3>
-              <p className="text-gray-600 dark:text-gray-400">Well-structured, maintainable, and scalable code</p>
-            </div>
-            <div className="bg-gradient-to-br from-indigo-50 to-purple-50 dark:from-indigo-900/20 dark:to-purple-900/20 rounded-xl p-6 border border-indigo-200 dark:border-indigo-800 hover:shadow-xl transition-all duration-300 hover:scale-105">
-              <FaRocket className="text-4xl text-indigo-600 dark:text-indigo-400 mb-4" />
-              <h3 className="text-xl font-bold text-gray-800 dark:text-gray-200 mb-2">Performance</h3>
-              <p className="text-gray-600 dark:text-gray-400">Optimized for speed and user experience</p>
-            </div>
-            <div className="bg-gradient-to-br from-purple-50 to-pink-50 dark:from-purple-900/20 dark:to-pink-900/20 rounded-xl p-6 border border-purple-200 dark:border-purple-800 hover:shadow-xl transition-all duration-300 hover:scale-105">
-              <FaBrain className="text-4xl text-purple-600 dark:text-purple-400 mb-4" />
-              <h3 className="text-xl font-bold text-gray-800 dark:text-gray-200 mb-2">Innovation</h3>
-              <p className="text-gray-600 dark:text-gray-400">Cutting-edge solutions and modern tech</p>
-            </div>
-          </div>
-
-          {/* CTA Section */}
-          <div className="text-center">
-            <Link
-              href="https://docs.google.com/document/d/1PMNwpby3AQYOQHQMYMsWYO8VH8VihQ_thKun1yViS5Y/edit?tab=t.0"
+            <a
+              href="https://github.com/Kartikp12"
               target="_blank"
-              rel="noopener noreferrer"
-              className="group inline-flex items-center gap-4 bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 hover:from-blue-700 hover:via-indigo-700 hover:to-purple-700 text-white px-8 py-4 rounded-full shadow-2xl hover:shadow-blue-500/50 transition-all duration-300 transform hover:scale-105 font-bold text-lg"
+              rel="noreferrer"
+              className="inline-flex w-fit items-center gap-2 font-semibold text-slate-600 transition hover:text-blue-600 dark:text-slate-300 dark:hover:text-blue-400"
             >
-              <FaFileDownload className="text-2xl group-hover:animate-bounce" />
-              <span>Download My CV</span>
-              <div className="absolute inset-0 rounded-full bg-gradient-to-r from-blue-400 to-purple-400 opacity-0 group-hover:opacity-20 blur-xl transition-opacity duration-300"></div>
-            </Link>
+              More on GitHub <FaArrowRight />
+            </a>
+          </div>
+
+          <div className="grid gap-5 md:grid-cols-2">
+            {projects.map((project) => (
+              <article
+                key={project.number}
+                className={`project-card accent-${project.accent} group relative flex min-h-[310px] flex-col overflow-hidden rounded-2xl border border-slate-200 bg-slate-50 p-6 transition duration-300 hover:-translate-y-1.5 hover:shadow-2xl hover:shadow-blue-950/10 dark:border-white/[0.09] dark:bg-[#0D1320] dark:hover:shadow-black/30 sm:p-8`}
+              >
+                <div className="mb-8 flex items-start justify-between gap-4">
+                  <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-blue-500/10 text-xl text-blue-600 transition duration-300 group-hover:scale-110 dark:text-blue-400">
+                    {project.icon}
+                  </div>
+                  <span className="font-mono text-sm text-slate-400 dark:text-slate-500">/{project.number}</span>
+                </div>
+                <p className="mb-2 text-xs font-bold tracking-[0.18em] text-blue-600 dark:text-blue-400">{project.category}</p>
+                <h3 className="text-xl font-bold tracking-tight sm:text-2xl">{project.title}</h3>
+                <p className="mt-3 max-w-xl flex-1 leading-7 text-slate-600 dark:text-slate-400">{project.description}</p>
+                <div className="mt-6 flex flex-wrap gap-2">
+                  {project.tags.map((tag) => (
+                    <span key={tag} className="rounded-md border border-slate-200 bg-white px-2.5 py-1 text-xs text-slate-600 dark:border-white/10 dark:bg-white/[0.03] dark:text-slate-300">
+                      {tag}
+                    </span>
+                  ))}
+                </div>
+                <div className="mt-6 flex gap-5 border-t border-slate-200 pt-4 dark:border-white/10">
+                  {project.github && (
+                    <a href={project.github} target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 text-sm font-semibold text-slate-700 transition hover:text-blue-600 dark:text-slate-300 dark:hover:text-blue-400">
+                      <FaGithub className="text-base" /> Source code <FaExternalLinkAlt className="text-[10px]" />
+                    </a>
+                  )}
+                  {project.demo && (
+                    <a href={project.demo} target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 text-sm font-semibold text-slate-700 transition hover:text-blue-600 dark:text-slate-300 dark:hover:text-blue-400">
+                      Live project <FaExternalLinkAlt className="text-[10px]" />
+                    </a>
+                  )}
+                </div>
+              </article>
+            ))}
           </div>
         </div>
       </section>
-    </div>
-  )
-}
 
-export default HomePage
+      <section className="border-y border-slate-200 bg-slate-50 px-5 py-24 dark:border-white/[0.06] dark:bg-[#0A101C] sm:px-8 lg:px-12 lg:py-28">
+        <div className="mx-auto max-w-7xl">
+          <SectionLabel>What I work with</SectionLabel>
+          <div className="mb-12 flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
+            <h2 className="max-w-2xl text-3xl font-bold tracking-tight sm:text-4xl">
+              A growing toolkit for building{" "}
+              <span className="text-blue-600 dark:text-blue-400">intelligent software.</span>
+            </h2>
+            <p className="max-w-md leading-7 text-slate-600 dark:text-slate-400">
+              My focus is on combining software engineering fundamentals with practical AI and data-driven projects.
+            </p>
+          </div>
+          <div className="grid gap-5 md:grid-cols-3">
+            {skillGroups.map((group) => (
+              <div key={group.title} className="rounded-2xl border border-slate-200 bg-white p-6 transition duration-300 hover:-translate-y-1 hover:border-blue-300 dark:border-white/[0.08] dark:bg-[#0D1320] dark:hover:border-blue-400/30 sm:p-7">
+                <div className="mb-5 flex h-11 w-11 items-center justify-center rounded-xl bg-blue-500/10 text-lg text-blue-600 dark:text-blue-400">{group.icon}</div>
+                <h3 className="text-lg font-bold">{group.title}</h3>
+                <p className="mt-2 min-h-[52px] text-sm leading-6 text-slate-600 dark:text-slate-400">{group.description}</p>
+                <div className="mt-5 flex flex-wrap gap-2">
+                  {group.items.map((item) => (
+                    <span key={item} className="rounded-lg border border-slate-200 px-3 py-1.5 text-xs font-medium text-slate-700 dark:border-white/10 dark:text-slate-300">{item}</span>
+                  ))}
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="px-5 py-24 sm:px-8 lg:px-12 lg:py-28">
+        <div className="mx-auto grid max-w-7xl gap-12 lg:grid-cols-[0.8fr_1.2fr] lg:gap-20">
+          <div>
+            <SectionLabel>A little about me</SectionLabel>
+            <h2 className="text-3xl font-bold leading-tight tracking-tight sm:text-4xl">
+              Curious by nature.
+              <br />
+              <span className="text-blue-600 dark:text-blue-400">Practical by design.</span>
+            </h2>
+          </div>
+          <div className="space-y-5 text-base leading-8 text-slate-600 dark:text-slate-400">
+            <p>
+              I&apos;m Kartik, a software engineer from India interested in Applied AI, blockchain systems, and data-driven applications. My work combines interactive web development with experiments in AI-powered workflows and on-chain analytics.
+            </p>
+            <p>
+              I enjoy understanding how systems work, connecting APIs and models, and improving projects through hands-on testing. I&apos;m currently deepening my understanding of LLM applications, evidence-grounded research, and AI agent workflows.
+            </p>
+            <div className="grid gap-4 pt-3 sm:grid-cols-2">
+              <div className="rounded-xl border border-slate-200 p-5 dark:border-white/10">
+                <FaLayerGroup className="mb-3 text-xl text-blue-600 dark:text-blue-400" />
+                <h3 className="font-semibold">Build with purpose</h3>
+                <p className="mt-2 text-sm leading-6">Focus on useful features, clear architecture, and a good user experience.</p>
+              </div>
+              <div className="rounded-xl border border-slate-200 p-5 dark:border-white/10">
+                <FaCode className="mb-3 text-xl text-blue-600 dark:text-blue-400" />
+                <h3 className="font-semibold">Learn by building</h3>
+                <p className="mt-2 text-sm leading-6">Explore new ideas through working prototypes, iteration, and practical experiments.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="contact" className="relative overflow-hidden px-5 pb-24 sm:px-8 lg:px-12 lg:pb-32">
+        <div className="relative mx-auto max-w-7xl overflow-hidden rounded-3xl bg-[#0B1220] px-6 py-16 text-white sm:px-12 sm:py-20 lg:px-16">
+          <div className="absolute -right-16 -top-24 h-72 w-72 rounded-full bg-blue-500/20 blur-3xl" />
+          <div className="absolute -bottom-32 left-1/4 h-64 w-64 rounded-full bg-violet-500/10 blur-3xl" />
+          <div className="relative flex flex-col justify-between gap-9 md:flex-row md:items-end">
+            <div className="max-w-2xl">
+              <SectionLabel>Get in touch</SectionLabel>
+              <h2 className="text-3xl font-bold leading-tight sm:text-4xl lg:text-5xl">Have an interesting problem to solve?</h2>
+              <p className="mt-5 max-w-xl leading-7 text-slate-300">
+                I&apos;m interested in thoughtful engineering, useful AI applications, and opportunities to learn through building. Let&apos;s connect.
+              </p>
+            </div>
+            <a href="mailto:kartikpatil1006@gmail.com" className="group inline-flex w-fit shrink-0 items-center gap-3 rounded-xl bg-blue-500 px-6 py-4 font-semibold text-white transition duration-300 hover:-translate-y-1 hover:bg-blue-400">
+              Say hello <FaArrowRight className="transition-transform duration-300 group-hover:translate-x-1" />
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <style jsx>{`
+        .hero-orb {
+          position: absolute;
+          pointer-events: none;
+          border-radius: 9999px;
+          filter: blur(90px);
+          opacity: 0.22;
+          animation: drift 12s ease-in-out infinite;
+        }
+        .hero-orb-blue {
+          width: 340px;
+          height: 340px;
+          top: 10%;
+          right: 2%;
+          background: #2563eb;
+        }
+        .hero-orb-purple {
+          width: 280px;
+          height: 280px;
+          bottom: 2%;
+          left: 15%;
+          background: #7c3aed;
+          animation-delay: -6s;
+        }
+        .gradient-text {
+          background: linear-gradient(100deg, #93c5fd, #818cf8 55%, #c4b5fd);
+          background-clip: text;
+          -webkit-background-clip: text;
+          color: transparent;
+        }
+        .fade-up {
+          animation: fadeUp 0.8s ease-out both;
+        }
+        .fade-up-delay {
+          animation-delay: 0.18s;
+        }
+        @keyframes fadeUp {
+          from { opacity: 0; transform: translateY(22px); }
+          to { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes drift {
+          0%, 100% { transform: translate3d(0, 0, 0); }
+          50% { transform: translate3d(-24px, 20px, 0); }
+        }
+        @media (prefers-reduced-motion: reduce) {
+          .hero-orb, .fade-up { animation: none !important; }
+        }
+      `}</style>
+    </main>
+  );
+}
