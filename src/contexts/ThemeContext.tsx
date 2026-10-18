@@ -16,17 +16,23 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
   const [mounted, setMounted] = useState(false)
 
   useEffect(() => {
-    setMounted(true)
+    // Get initial theme from localStorage or system preference
     const savedTheme = localStorage.getItem('theme') as Theme | null
-    if (savedTheme) {
-      setTheme(savedTheme)
-    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
-      setTheme('dark')
-    }
+    const systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches
+    const initialTheme = savedTheme || (systemPrefersDark ? 'dark' : 'light')
+    
+    setTheme(initialTheme)
+    
+    // Apply theme class immediately
+    document.documentElement.classList.remove('light', 'dark')
+    document.documentElement.classList.add(initialTheme)
+    
+    setMounted(true)
   }, [])
 
   useEffect(() => {
     if (mounted) {
+      // Update class and localStorage when theme changes
       document.documentElement.classList.remove('light', 'dark')
       document.documentElement.classList.add(theme)
       localStorage.setItem('theme', theme)
