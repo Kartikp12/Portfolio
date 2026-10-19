@@ -12,7 +12,6 @@ import {
   FaLayerGroup,
   FaLinkedin,
   FaNetworkWired,
-  FaTerminal,
 } from 'react-icons/fa'
 import { HiSparkles } from 'react-icons/hi'
 
@@ -156,7 +155,7 @@ function AnimatedAIVisual() {
 
       <div className="ai-status-pill">
         <span className="ai-status-dot" />
-        EXPLORING WHAT'S POSSIBLE
+        EXPLORING WHAT&apos;S POSSIBLE
       </div>
 
       <span className="ai-spark ai-spark-one">✦</span>
