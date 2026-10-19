@@ -911,3 +911,56 @@ svg {
     transition-duration: 0.01ms !important;
   }
 }
+/* =====================================================
+   HERO LAYOUT BALANCE FIX
+===================================================== */
+
+@media (min-width: 1024px) {
+    .home-hero > div.relative.mx-auto.grid {
+      grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.05fr);
+      column-gap: 3rem;
+    }
+  
+    .home-hero .ai-visual {
+      width: min(100%, 540px);
+      transform: scale(1.04);
+      transform-origin: center;
+    }
+  
+    .home-hero .hero-copy {
+      width: 100%;
+      max-width: 620px;
+      justify-self: end;
+    }
+  
+    .home-hero .hero-copy h1 {
+      max-width: 100%;
+      font-size: clamp(3.25rem, 4.2vw, 4.5rem);
+      line-height: 1.1;
+      letter-spacing: -0.045em;
+    }
+  }
+  
+  @media (min-width: 1280px) {
+    .home-hero > div.relative.mx-auto.grid {
+      column-gap: 3.5rem;
+    }
+  
+    .home-hero .ai-visual {
+      width: min(100%, 560px);
+    }
+  
+    .home-hero .hero-copy h1 {
+      font-size: clamp(3.75rem, 4.2vw, 4.5rem);
+    }
+  }
+  
+  @media (max-width: 1023px) {
+    .home-hero .ai-visual {
+      width: min(100%, 460px);
+    }
+  
+    .home-hero .hero-copy {
+      width: 100%;
+    }
+  }
