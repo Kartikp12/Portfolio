@@ -86,8 +86,504 @@ svg {
   background: rgba(99, 102, 241, 0.24);
 }
 
+:focus-visible {
+  outline: 2px solid #818cf8;
+  outline-offset: 4px;
+}
+
 /* =====================================================
-   FUTURISTIC BACKGROUND
+   FUTURISTIC HOME HERO
+===================================================== */
+
+.home-hero {
+  background:
+    radial-gradient(
+      ellipse at 20% 45%,
+      rgba(37, 99, 235, 0.12),
+      transparent 40%
+    ),
+    radial-gradient(
+      ellipse at 80% 15%,
+      rgba(124, 58, 237, 0.12),
+      transparent 35%
+    ),
+    #080d19;
+}
+
+.hero-grid {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.34;
+  background-image:
+    linear-gradient(
+      rgba(148, 163, 184, 0.075) 1px,
+      transparent 1px
+    ),
+    linear-gradient(
+      90deg,
+      rgba(148, 163, 184, 0.075) 1px,
+      transparent 1px
+    );
+  background-size: 48px 48px;
+  mask-image: linear-gradient(to bottom, black, transparent 92%);
+  -webkit-mask-image: linear-gradient(
+    to bottom,
+    black,
+    transparent 92%
+  );
+}
+
+.hero-orb {
+  position: absolute;
+  z-index: 0;
+  pointer-events: none;
+  border-radius: 50%;
+  filter: blur(95px);
+  opacity: 0.25;
+  animation: heroDrift 12s ease-in-out infinite;
+}
+
+.hero-orb-blue {
+  top: 8%;
+  right: 3%;
+  width: 300px;
+  height: 300px;
+  background: #2563eb;
+}
+
+.hero-orb-purple {
+  bottom: 0;
+  left: 8%;
+  width: 260px;
+  height: 260px;
+  background: #7c3aed;
+  animation-delay: -6s;
+}
+
+.gradient-text {
+  color: transparent;
+  background: linear-gradient(
+    105deg,
+    #93c5fd,
+    #818cf8 45%,
+    #c4b5fd 75%,
+    #93c5fd
+  );
+  background-size: 220% auto;
+  background-clip: text;
+  -webkit-background-clip: text;
+  animation: gradientFlow 7s linear infinite;
+}
+
+/* =====================================================
+   HERO CONTENT REVEAL
+===================================================== */
+
+.reveal-copy {
+  animation: revealCopy 900ms cubic-bezier(0.22, 1, 0.36, 1)
+    both;
+}
+
+.reveal-visual {
+  animation: revealVisual 1100ms cubic-bezier(0.22, 1, 0.36, 1)
+    150ms both;
+}
+
+/* =====================================================
+   ANIMATED CIRCULAR AI VISUAL
+===================================================== */
+
+.ai-visual {
+  position: relative;
+  isolation: isolate;
+  width: min(100%, 490px);
+  aspect-ratio: 1;
+  display: grid;
+  place-items: center;
+  margin-inline: auto;
+}
+
+.ai-ambient-glow {
+  position: absolute;
+  z-index: -2;
+  inset: 12%;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle,
+    rgba(59, 130, 246, 0.2),
+    rgba(124, 58, 237, 0.1) 45%,
+    transparent 72%
+  );
+  filter: blur(22px);
+  animation: ambientBreath 5s ease-in-out infinite;
+}
+
+.ai-orbit {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  border: 1px solid rgba(147, 197, 253, 0.24);
+  border-radius: 50%;
+  pointer-events: none;
+  transform: translate(-50%, -50%);
+}
+
+.ai-orbit-one {
+  width: 58%;
+  aspect-ratio: 1;
+  border-style: dashed;
+  animation: orbitRotate 22s linear infinite;
+}
+
+.ai-orbit-two {
+  width: 77%;
+  aspect-ratio: 1;
+  border-color: rgba(129, 140, 248, 0.3);
+  animation: orbitRotateReverse 30s linear infinite;
+}
+
+.ai-orbit-three {
+  width: 96%;
+  aspect-ratio: 1;
+  border-color: rgba(192, 132, 252, 0.2);
+  animation: orbitPulse 7s ease-in-out infinite;
+}
+
+.orbit-node {
+  position: absolute;
+  top: 50%;
+  left: -5px;
+  width: 10px;
+  height: 10px;
+  border: 2px solid #080d19;
+  border-radius: 50%;
+  transform: translateY(-50%);
+  box-shadow: 0 0 18px currentColor;
+}
+
+.orbit-node-one {
+  color: #60a5fa;
+  background: #60a5fa;
+}
+
+.orbit-node-two {
+  top: 18%;
+  left: auto;
+  right: 8%;
+  color: #a78bfa;
+  background: #a78bfa;
+}
+
+.orbit-node-three {
+  top: auto;
+  bottom: 10%;
+  left: 23%;
+  color: #34d399;
+  background: #34d399;
+}
+
+.ai-crosshair {
+  position: absolute;
+  z-index: -1;
+  pointer-events: none;
+  opacity: 0.25;
+}
+
+.ai-crosshair-horizontal {
+  width: 100%;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    #60a5fa,
+    transparent
+  );
+}
+
+.ai-crosshair-vertical {
+  width: 1px;
+  height: 100%;
+  background: linear-gradient(
+    180deg,
+    transparent,
+    #a78bfa,
+    transparent
+  );
+}
+
+.ai-core-halo {
+  position: absolute;
+  width: 43%;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: rgba(59, 130, 246, 0.16);
+  filter: blur(25px);
+  animation: coreBreath 4s ease-in-out infinite;
+}
+
+.ai-core {
+  position: relative;
+  z-index: 2;
+  display: grid;
+  place-items: center;
+  width: 34%;
+  aspect-ratio: 1;
+  border: 1px solid rgba(147, 197, 253, 0.55);
+  border-radius: 50%;
+  background: linear-gradient(
+    145deg,
+    rgba(30, 64, 175, 0.9),
+    rgba(49, 46, 129, 0.9) 55%,
+    rgba(88, 28, 135, 0.9)
+  );
+  box-shadow:
+    0 0 30px rgba(59, 130, 246, 0.28),
+    inset 0 0 28px rgba(147, 197, 253, 0.12);
+  animation: coreFloat 5s ease-in-out infinite;
+}
+
+.ai-core-inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+.ai-brain-icon {
+  color: #dbeafe;
+  font-size: clamp(35px, 6vw, 60px);
+  filter: drop-shadow(0 0 14px rgba(147, 197, 253, 0.7));
+}
+
+.ai-core-caption {
+  color: #dbeafe;
+  font-size: clamp(6px, 1vw, 9px);
+  font-weight: 800;
+  letter-spacing: 0.2em;
+}
+
+/* =====================================================
+   FLOATING INFO CARDS
+===================================================== */
+
+.ai-floating-card {
+  position: absolute;
+  z-index: 5;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  max-width: 210px;
+  padding: 11px 13px;
+  border: 1px solid rgba(148, 163, 184, 0.2);
+  border-radius: 14px;
+  background: rgba(10, 17, 31, 0.86);
+  box-shadow: 0 14px 35px rgba(0, 0, 0, 0.22);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  animation: cardFloat 5s ease-in-out infinite;
+}
+
+.ai-floating-card strong {
+  display: block;
+  color: #e2e8f0;
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  white-space: nowrap;
+}
+
+.ai-floating-card small {
+  display: block;
+  margin-top: 4px;
+  color: #94a3b8;
+  font-size: 9px;
+  line-height: 1.5;
+}
+
+.ai-card-icon {
+  display: grid;
+  flex: 0 0 auto;
+  place-items: center;
+  width: 33px;
+  height: 33px;
+  border-radius: 10px;
+  font-size: 15px;
+}
+
+.ai-blue-icon {
+  color: #93c5fd;
+  background: rgba(59, 130, 246, 0.16);
+}
+
+.ai-purple-icon {
+  color: #c4b5fd;
+  background: rgba(139, 92, 246, 0.16);
+}
+
+.ai-green-icon {
+  color: #6ee7b7;
+  background: rgba(16, 185, 129, 0.14);
+}
+
+.ai-card-top {
+  top: 12%;
+  left: -1%;
+}
+
+.ai-card-right {
+  top: 42%;
+  right: -3%;
+  animation-delay: -1.7s;
+}
+
+.ai-card-bottom {
+  bottom: 12%;
+  left: 1%;
+  animation-delay: -3.2s;
+}
+
+.ai-status-pill {
+  position: absolute;
+  z-index: 6;
+  right: 8%;
+  bottom: 5%;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 11px;
+  border: 1px solid rgba(52, 211, 153, 0.2);
+  border-radius: 999px;
+  background: rgba(6, 20, 25, 0.85);
+  color: #a7f3d0;
+  font-size: 8px;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  backdrop-filter: blur(12px);
+}
+
+.ai-status-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #34d399;
+  box-shadow: 0 0 12px rgba(52, 211, 153, 0.8);
+  animation: statusPulse 2s ease-in-out infinite;
+}
+
+.ai-spark {
+  position: absolute;
+  z-index: 4;
+  color: #93c5fd;
+  text-shadow: 0 0 18px rgba(96, 165, 250, 0.8);
+  pointer-events: none;
+  animation: sparkFloat 4s ease-in-out infinite;
+}
+
+.ai-spark-one {
+  top: 19%;
+  right: 19%;
+  font-size: 24px;
+}
+
+.ai-spark-two {
+  bottom: 25%;
+  left: 9%;
+  color: #c4b5fd;
+  font-size: 30px;
+  animation-delay: -2s;
+}
+
+.ai-spark-three {
+  top: 31%;
+  left: 12%;
+  color: #6ee7b7;
+  font-size: 17px;
+  animation-delay: -1s;
+}
+
+/* =====================================================
+   PROJECT CARDS
+===================================================== */
+
+.project-card {
+  isolation: isolate;
+}
+
+.project-card::before {
+  position: absolute;
+  z-index: -1;
+  top: 0;
+  right: 0;
+  left: 0;
+  height: 2px;
+  content: "";
+  opacity: 0;
+  background: linear-gradient(
+    90deg,
+    #3b82f6,
+    #8b5cf6,
+    #22d3ee
+  );
+  transition: opacity 250ms ease;
+}
+
+.project-card:hover::before {
+  opacity: 1;
+}
+
+.accent-violet:hover {
+  border-color: rgba(139, 92, 246, 0.45);
+}
+
+.accent-cyan:hover {
+  border-color: rgba(34, 211, 238, 0.45);
+}
+
+.accent-emerald:hover {
+  border-color: rgba(16, 185, 129, 0.45);
+}
+
+/* =====================================================
+   SHARED GLASS SURFACES
+===================================================== */
+
+.glass-panel {
+  border: 1px solid var(--surface-border);
+  background: var(--surface);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  box-shadow: 0 12px 40px rgba(15, 23, 42, 0.045);
+}
+
+.dark .glass-panel {
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.16);
+}
+
+.futuristic-card {
+  position: relative;
+  overflow: hidden;
+  border: 1px solid var(--surface-border);
+  border-radius: 24px;
+  background: var(--surface);
+  transition:
+    transform 250ms ease,
+    border-color 250ms ease,
+    box-shadow 250ms ease;
+}
+
+.futuristic-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(129, 140, 248, 0.5);
+  box-shadow: 0 18px 50px rgba(99, 102, 241, 0.1);
+}
+
+.dark .futuristic-card:hover {
+  box-shadow: 0 18px 50px rgba(79, 70, 229, 0.14);
+}
+
+/* =====================================================
+   SHARED BACKGROUND
 ===================================================== */
 
 .futuristic-page {
@@ -143,6 +639,11 @@ svg {
     );
   background-size: 44px 44px;
   mask-image: linear-gradient(to bottom, black, transparent 85%);
+  -webkit-mask-image: linear-gradient(
+    to bottom,
+    black,
+    transparent 85%
+  );
 }
 
 .dark .futuristic-grid {
@@ -160,112 +661,245 @@ svg {
 }
 
 /* =====================================================
-   GLASS SURFACES
+   ANIMATION KEYFRAMES
 ===================================================== */
 
-.glass-panel {
-  border: 1px solid var(--surface-border);
-  background: var(--surface);
-  backdrop-filter: blur(18px);
-  -webkit-backdrop-filter: blur(18px);
-  box-shadow: 0 12px 40px rgba(15, 23, 42, 0.045);
-}
+@keyframes revealCopy {
+  from {
+    opacity: 0;
+    transform: translate3d(35px, 12px, 0);
+    filter: blur(5px);
+  }
 
-.dark .glass-panel {
-  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.16);
-}
-
-/* =====================================================
-   GRADIENT TEXT
-===================================================== */
-
-.gradient-text {
-  color: transparent;
-  background: linear-gradient(
-    110deg,
-    #6366f1 0%,
-    #8b5cf6 48%,
-    #c084fc 100%
-  );
-  background-clip: text;
-  -webkit-background-clip: text;
-}
-
-.dark .gradient-text {
-  background-image: linear-gradient(
-    110deg,
-    #a5b4fc 0%,
-    #c4b5fd 48%,
-    #e9d5ff 100%
-  );
-}
-
-/* =====================================================
-   INTERACTIVE CARDS
-===================================================== */
-
-.futuristic-card {
-  position: relative;
-  overflow: hidden;
-  border: 1px solid var(--surface-border);
-  border-radius: 24px;
-  background: var(--surface);
-  transition:
-    transform 250ms ease,
-    border-color 250ms ease,
-    box-shadow 250ms ease;
-}
-
-.futuristic-card:hover {
-  transform: translateY(-4px);
-  border-color: rgba(129, 140, 248, 0.5);
-  box-shadow: 0 18px 50px rgba(99, 102, 241, 0.1);
-}
-
-.dark .futuristic-card:hover {
-  box-shadow: 0 18px 50px rgba(79, 70, 229, 0.14);
-}
-
-/* =====================================================
-   SUBTLE ANIMATIONS
-===================================================== */
-
-@keyframes ambient-float {
-  0%,
-  100% {
+  to {
+    opacity: 1;
     transform: translate3d(0, 0, 0);
-  }
-  50% {
-    transform: translate3d(0, -10px, 0);
+    filter: blur(0);
   }
 }
 
-@keyframes ambient-pulse {
+@keyframes revealVisual {
+  from {
+    opacity: 0;
+    transform: translate3d(-30px, 12px, 0) scale(0.94);
+    filter: blur(5px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0) scale(1);
+    filter: blur(0);
+  }
+}
+
+@keyframes orbitRotate {
+  from {
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+
+  to {
+    transform: translate(-50%, -50%) rotate(360deg);
+  }
+}
+
+@keyframes orbitRotateReverse {
+  from {
+    transform: translate(-50%, -50%) rotate(360deg);
+  }
+
+  to {
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+}
+
+@keyframes orbitPulse {
   0%,
   100% {
-    opacity: 0.45;
+    opacity: 0.35;
+    transform: translate(-50%, -50%) scale(0.97);
   }
+
   50% {
     opacity: 0.8;
+    transform: translate(-50%, -50%) scale(1.02);
   }
 }
 
-.ambient-float {
-  animation: ambient-float 7s ease-in-out infinite;
+@keyframes coreBreath {
+  0%,
+  100% {
+    opacity: 0.5;
+    transform: scale(0.9);
+  }
+
+  50% {
+    opacity: 1;
+    transform: scale(1.12);
+  }
 }
 
-.ambient-pulse {
-  animation: ambient-pulse 4s ease-in-out infinite;
+@keyframes coreFloat {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+@keyframes ambientBreath {
+  0%,
+  100% {
+    opacity: 0.55;
+    transform: scale(0.92);
+  }
+
+  50% {
+    opacity: 1;
+    transform: scale(1.08);
+  }
+}
+
+@keyframes cardFloat {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-7px);
+  }
+}
+
+@keyframes sparkFloat {
+  0%,
+  100% {
+    transform: translateY(0) rotate(0deg);
+    opacity: 0.65;
+  }
+
+  50% {
+    transform: translateY(-13px) rotate(18deg);
+    opacity: 1;
+  }
+}
+
+@keyframes statusPulse {
+  0%,
+  100% {
+    opacity: 0.65;
+    box-shadow: 0 0 5px rgba(52, 211, 153, 0.45);
+  }
+
+  50% {
+    opacity: 1;
+    box-shadow: 0 0 13px rgba(52, 211, 153, 0.9);
+  }
+}
+
+@keyframes heroDrift {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+
+  50% {
+    transform: translate3d(-20px, 18px, 0) scale(1.08);
+  }
+}
+
+@keyframes gradientFlow {
+  to {
+    background-position: 220% center;
+  }
 }
 
 /* =====================================================
-   ACCESSIBILITY & RESPONSIVE MOTION
+   RESPONSIVE
 ===================================================== */
 
-:focus-visible {
-  outline: 2px solid #818cf8;
-  outline-offset: 4px;
+@media (max-width: 1023px) {
+  .ai-visual {
+    width: min(100%, 440px);
+  }
+
+  .ai-card-right {
+    right: -1%;
+  }
+
+  .ai-floating-card {
+    max-width: 195px;
+  }
 }
+
+@media (max-width: 640px) {
+  .hero-orb-blue {
+    width: 220px;
+    height: 220px;
+  }
+
+  .hero-orb-purple {
+    width: 200px;
+    height: 200px;
+  }
+
+  .ai-visual {
+    width: min(100%, 360px);
+  }
+
+  .ai-floating-card {
+    gap: 7px;
+    max-width: 165px;
+    padding: 8px 9px;
+    border-radius: 11px;
+  }
+
+  .ai-floating-card strong {
+    font-size: 7px;
+    letter-spacing: 0.06em;
+  }
+
+  .ai-floating-card small {
+    font-size: 8px;
+  }
+
+  .ai-card-icon {
+    width: 27px;
+    height: 27px;
+    font-size: 12px;
+  }
+
+  .ai-card-top {
+    top: 10%;
+    left: -1%;
+  }
+
+  .ai-card-right {
+    right: -1%;
+  }
+
+  .ai-card-bottom {
+    bottom: 12%;
+    left: 0;
+  }
+
+  .ai-status-pill {
+    right: 3%;
+    bottom: 3%;
+    font-size: 7px;
+    padding: 7px 8px;
+  }
+
+  .ai-spark-one {
+    right: 15%;
+  }
+}
+
+/* =====================================================
+   ACCESSIBILITY
+===================================================== */
 
 @media (prefers-reduced-motion: reduce) {
   *,

@@ -2,7 +2,6 @@
 'use client'
 
 import React from 'react'
-
 import {
   FaArrowRight,
   FaBrain,
@@ -98,28 +97,92 @@ function SectionLabel({ children }: { children: React.ReactNode }) {
   )
 }
 
-const HomePage = () => {
+function AnimatedAIVisual() {
+  return (
+    <div className="ai-visual reveal-visual">
+      <div className="ai-ambient-glow" />
+
+      <div className="ai-orbit ai-orbit-one">
+        <span className="orbit-node orbit-node-one" />
+      </div>
+      <div className="ai-orbit ai-orbit-two">
+        <span className="orbit-node orbit-node-two" />
+      </div>
+      <div className="ai-orbit ai-orbit-three">
+        <span className="orbit-node orbit-node-three" />
+      </div>
+
+      <div className="ai-crosshair ai-crosshair-horizontal" />
+      <div className="ai-crosshair ai-crosshair-vertical" />
+
+      <div className="ai-core-halo" />
+
+      <div className="ai-core">
+        <div className="ai-core-inner">
+          <FaBrain className="ai-brain-icon" />
+          <span className="ai-core-caption">INTELLIGENCE</span>
+        </div>
+      </div>
+
+      <div className="ai-floating-card ai-card-top">
+        <span className="ai-card-icon ai-blue-icon">
+          <FaCode />
+        </span>
+        <span>
+          <strong>AI ENGINEERING</strong>
+          <small>Build intelligent systems</small>
+        </span>
+      </div>
+
+      <div className="ai-floating-card ai-card-right">
+        <span className="ai-card-icon ai-purple-icon">
+          <FaNetworkWired />
+        </span>
+        <span>
+          <strong>CONNECTED DATA</strong>
+          <small>Find meaningful patterns</small>
+        </span>
+      </div>
+
+      <div className="ai-floating-card ai-card-bottom">
+        <span className="ai-card-icon ai-green-icon">
+          <HiSparkles />
+        </span>
+        <span>
+          <strong>IDEAS → INSIGHTS</strong>
+          <small>Experiment. Learn. Improve.</small>
+        </span>
+      </div>
+
+      <div className="ai-status-pill">
+        <span className="ai-status-dot" />
+        EXPLORING WHAT'S POSSIBLE
+      </div>
+
+      <span className="ai-spark ai-spark-one">✦</span>
+      <span className="ai-spark ai-spark-two">✧</span>
+      <span className="ai-spark ai-spark-three">✳</span>
+    </div>
+  )
+}
+
+export default function HomePage() {
   return (
     <main className="overflow-hidden bg-white text-slate-900 dark:bg-[#070B14] dark:text-slate-100">
       {/* Hero */}
-      <section className="relative isolate overflow-hidden bg-[#080D19] text-white">
-        <div
-          aria-hidden="true"
-          className="pointer-events-none absolute inset-0 opacity-30"
-          style={{
-            backgroundImage:
-              'linear-gradient(rgba(148,163,184,0.08) 1px, transparent 1px), linear-gradient(90deg, rgba(148,163,184,0.08) 1px, transparent 1px)',
-            backgroundSize: '48px 48px',
-            maskImage:
-              'linear-gradient(to bottom, black, transparent 90%)',
-          }}
-        />
+      <section className="home-hero relative isolate overflow-hidden text-white">
+        <div aria-hidden="true" className="hero-grid" />
+        <div aria-hidden="true" className="hero-orb hero-orb-blue" />
+        <div aria-hidden="true" className="hero-orb hero-orb-purple" />
 
-        <div className="hero-orb hero-orb-blue" />
-        <div className="hero-orb hero-orb-purple" />
+        <div className="relative mx-auto grid min-h-[680px] max-w-7xl items-center gap-12 px-5 py-20 sm:px-8 lg:grid-cols-[1fr_1fr] lg:gap-10 lg:px-12 lg:py-24">
+          {/* Left: animated circular visual */}
+          <div className="order-2 flex justify-center lg:order-1">
+            <AnimatedAIVisual />
+          </div>
 
-        <div className="relative mx-auto grid min-h-[680px] max-w-7xl items-center gap-14 px-5 py-24 sm:px-8 lg:grid-cols-[1.1fr_0.9fr] lg:px-12 lg:py-32">
-          <div className="fade-up">
+          {/* Right: introduction */}
+          <div className="hero-copy reveal-copy order-1 lg:order-2">
             <div className="mb-7 inline-flex items-center gap-2 rounded-full border border-blue-400/20 bg-blue-400/[0.08] px-4 py-2 text-sm text-blue-200">
               <span className="relative flex h-2 w-2">
                 <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-60" />
@@ -140,8 +203,8 @@ const HomePage = () => {
 
             <p className="mt-7 max-w-xl text-base leading-8 text-slate-300 sm:text-lg">
               I build web applications, explore AI-powered workflows, and
-              work with blockchain data. I&apos;m focused on turning
-              practical ideas into useful, well-engineered software.
+              work with blockchain data. I&apos;m focused on turning practical
+              ideas into useful, well-engineered software.
             </p>
 
             <div className="mt-9 flex flex-wrap gap-3">
@@ -173,6 +236,7 @@ const HomePage = () => {
                 GitHub
                 <FaExternalLinkAlt className="text-[10px]" />
               </a>
+
               <a
                 href="https://www.linkedin.com/"
                 target="_blank"
@@ -183,82 +247,9 @@ const HomePage = () => {
                 LinkedIn
                 <FaExternalLinkAlt className="text-[10px]" />
               </a>
+
               <span className="hidden h-4 w-px bg-white/20 sm:block" />
               <span>India · Open to learning and collaboration</span>
-            </div>
-          </div>
-
-          {/* Animated AI / code visual */}
-          <div className="fade-up fade-up-delay relative mx-auto w-full max-w-lg">
-            <div className="absolute -inset-6 rounded-[2rem] bg-blue-500/10 blur-3xl" />
-
-            <div className="relative overflow-hidden rounded-2xl border border-white/10 bg-[#0D1422]/90 shadow-2xl shadow-black/30 backdrop-blur-xl">
-              <div className="flex items-center justify-between border-b border-white/10 px-5 py-4">
-                <div className="flex items-center gap-2">
-                  <span className="h-2.5 w-2.5 rounded-full bg-red-400" />
-                  <span className="h-2.5 w-2.5 rounded-full bg-amber-400" />
-                  <span className="h-2.5 w-2.5 rounded-full bg-emerald-400" />
-                </div>
-                <div className="flex items-center gap-2 text-xs text-slate-400">
-                  <FaTerminal />
-                  building.md
-                </div>
-              </div>
-
-              <div className="space-y-6 p-6 sm:p-8">
-                <div>
-                  <p className="mb-3 text-xs uppercase tracking-[0.2em] text-slate-500">
-                    Current interests
-                  </p>
-                  <h2 className="text-xl font-semibold text-white sm:text-2xl">
-                    From a question
-                    <br />
-                    <span className="text-blue-400">to useful insights.</span>
-                  </h2>
-                </div>
-
-                <div className="space-y-3 font-mono text-sm">
-                  <div className="rounded-xl border border-white/10 bg-white/[0.03] p-4">
-                    <p className="text-slate-500">
-                      <span className="text-blue-400">01</span> / Understand
-                    </p>
-                    <p className="mt-1 text-slate-200">
-                      Define the problem and plan the workflow.
-                    </p>
-                  </div>
-
-                  <div className="ml-4 rounded-xl border border-blue-400/20 bg-blue-400/[0.06] p-4 sm:ml-8">
-                    <p className="text-blue-300">
-                      <span className="text-blue-400">02</span> / Build
-                    </p>
-                    <p className="mt-1 text-slate-200">
-                      Connect models, APIs, and real data.
-                    </p>
-                  </div>
-
-                  <div className="ml-8 rounded-xl border border-violet-400/20 bg-violet-400/[0.06] p-4">
-                    <p className="text-violet-300">
-                      <span className="text-violet-400">03</span> / Improve
-                    </p>
-                    <p className="mt-1 text-slate-200">
-                      Test outputs and refine the experience.
-                    </p>
-                  </div>
-                </div>
-
-                <div className="flex flex-wrap gap-2 border-t border-white/10 pt-5">
-                  {['Applied AI', 'Web Engineering', 'Blockchain Data'].map(
-                    (item) => (
-                      <span
-                        key={item}
-                        className="rounded-full border border-white/10 px-3 py-1.5 text-xs text-slate-300"
-                      >
-                        {item}
-                      </span>
-                    )
-                  )}
-                </div>
-              </div>
             </div>
           </div>
         </div>
@@ -273,7 +264,7 @@ const HomePage = () => {
         </a>
       </section>
 
-      {/* Project section */}
+      {/* Projects */}
       <section
         id="projects"
         className="relative scroll-mt-20 px-5 py-24 sm:px-8 lg:px-12 lg:py-32"
@@ -289,6 +280,7 @@ const HomePage = () => {
                 </span>
               </h2>
             </div>
+
             <a
               href="https://github.com/Kartikp12"
               target="_blank"
@@ -373,6 +365,7 @@ const HomePage = () => {
       <section className="border-y border-slate-200 bg-slate-50 px-5 py-24 dark:border-white/[0.06] dark:bg-[#0A101C] sm:px-8 lg:px-12 lg:py-28">
         <div className="mx-auto max-w-7xl">
           <SectionLabel>What I work with</SectionLabel>
+
           <div className="mb-12 flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
             <h2 className="max-w-2xl text-3xl font-bold tracking-tight sm:text-4xl">
               A growing toolkit for building{' '}
@@ -380,6 +373,7 @@ const HomePage = () => {
                 intelligent software.
               </span>
             </h2>
+
             <p className="max-w-md leading-7 text-slate-600 dark:text-slate-400">
               My focus is on combining software engineering fundamentals
               with practical AI and data-driven projects.
@@ -395,7 +389,9 @@ const HomePage = () => {
                 <div className="mb-5 flex h-11 w-11 items-center justify-center rounded-xl bg-blue-500/10 text-lg text-blue-600 dark:text-blue-400">
                   {group.icon}
                 </div>
+
                 <h3 className="text-lg font-bold">{group.title}</h3>
+
                 <p className="mt-2 min-h-[52px] text-sm leading-6 text-slate-600 dark:text-slate-400">
                   {group.description}
                 </p>
@@ -416,7 +412,7 @@ const HomePage = () => {
         </div>
       </section>
 
-      {/* About / approach */}
+      {/* About */}
       <section className="px-5 py-24 sm:px-8 lg:px-12 lg:py-28">
         <div className="mx-auto grid max-w-7xl gap-12 lg:grid-cols-[0.8fr_1.2fr] lg:gap-20">
           <div>
@@ -437,21 +433,24 @@ const HomePage = () => {
               My work combines interactive web development with experiments
               in AI-powered workflows and on-chain analytics.
             </p>
+
             <p>
               I enjoy understanding how systems work, connecting APIs and
               models, and improving projects through hands-on testing. I&apos;m
               currently deepening my understanding of LLM applications,
               evidence-grounded research, and AI agent workflows.
             </p>
+
             <div className="grid gap-4 pt-3 sm:grid-cols-2">
               <div className="rounded-xl border border-slate-200 p-5 dark:border-white/10">
                 <FaLayerGroup className="mb-3 text-xl text-blue-600 dark:text-blue-400" />
                 <h3 className="font-semibold">Build with purpose</h3>
                 <p className="mt-2 text-sm leading-6">
-                  Focus on useful features, clear architecture, and a
-                  good user experience.
+                  Focus on useful features, clear architecture, and a good
+                  user experience.
                 </p>
               </div>
+
               <div className="rounded-xl border border-slate-200 p-5 dark:border-white/10">
                 <FaCode className="mb-3 text-xl text-blue-600 dark:text-blue-400" />
                 <h3 className="font-semibold">Learn by building</h3>
@@ -465,7 +464,7 @@ const HomePage = () => {
         </div>
       </section>
 
-      {/* Contact CTA */}
+      {/* Contact */}
       <section
         id="contact"
         className="relative overflow-hidden px-5 pb-24 sm:px-8 lg:px-12 lg:pb-32"
@@ -497,79 +496,6 @@ const HomePage = () => {
           </div>
         </div>
       </section>
-
-      <style jsx>{`
-        .hero-orb {
-          position: absolute;
-          pointer-events: none;
-          border-radius: 9999px;
-          filter: blur(90px);
-          opacity: 0.22;
-          animation: drift 12s ease-in-out infinite;
-        }
-
-        .hero-orb-blue {
-          width: 340px;
-          height: 340px;
-          top: 10%;
-          right: 2%;
-          background: #2563eb;
-        }
-
-        .hero-orb-purple {
-          width: 280px;
-          height: 280px;
-          bottom: 2%;
-          left: 15%;
-          background: #7c3aed;
-          animation-delay: -6s;
-        }
-
-        .gradient-text {
-          background: linear-gradient(100deg, #93c5fd, #818cf8 55%, #c4b5fd);
-          background-clip: text;
-          -webkit-background-clip: text;
-          color: transparent;
-        }
-
-        .fade-up {
-          animation: fadeUp 0.8s ease-out both;
-        }
-
-        .fade-up-delay {
-          animation-delay: 0.18s;
-        }
-
-        @keyframes fadeUp {
-          from {
-            opacity: 0;
-            transform: translateY(22px);
-          }
-          to {
-            opacity: 1;
-            transform: translateY(0);
-          }
-        }
-
-        @keyframes drift {
-          0%,
-          100% {
-            transform: translate3d(0, 0, 0);
-          }
-          50% {
-            transform: translate3d(-24px, 20px, 0);
-          }
-        }
-
-        @media (prefers-reduced-motion: reduce) {
-          .hero-orb,
-          .fade-up {
-            animation: none !important;
-          }
-        }
-      `}</style>
     </main>
   )
 }
-
-export default HomePage
