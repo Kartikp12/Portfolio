@@ -1,3 +1,4 @@
+
 'use client'
 
 import React, { useEffect, useState } from 'react'
@@ -258,22 +259,20 @@ export default function HomePage() {
         }
       `}</style>
 
-      <main className="overflow-hidden bg-white text-slate-900 dark:bg-[#070B14] dark:text-slate-100">
+      <main className="min-h-screen overflow-hidden bg-[var(--background)] text-[var(--foreground)] transition-colors duration-300">
         {/* Hero */}
-        <section className="home-hero relative isolate overflow-hidden text-white">
+        <section className="home-hero relative isolate overflow-hidden text-slate-900 transition-colors duration-300 dark:text-white">
           <div aria-hidden="true" className="hero-grid" />
           <div aria-hidden="true" className="hero-orb hero-orb-blue" />
           <div aria-hidden="true" className="hero-orb hero-orb-purple" />
 
           <div className="relative mx-auto grid min-h-[680px] max-w-7xl items-center gap-12 px-5 py-20 sm:px-8 lg:grid-cols-[1fr_1fr] lg:gap-10 lg:px-12 lg:py-24">
-            {/* Left: animated circular visual */}
             <div className="order-2 flex justify-center lg:order-1">
               <AnimatedAIVisual />
             </div>
 
-            {/* Right: introduction */}
             <div className="hero-copy reveal-copy order-1 lg:order-2">
-              <div className="mb-7 inline-flex items-center gap-2 rounded-full border border-blue-400/20 bg-blue-400/[0.08] px-4 py-2 text-sm text-blue-200">
+              <div className="mb-7 inline-flex items-center gap-2 rounded-full border border-blue-400/30 bg-blue-500/[0.08] px-4 py-2 text-sm text-blue-700 dark:border-blue-400/20 dark:text-blue-200">
                 <span className="relative flex h-2 w-2">
                   <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-60" />
                   <span className="relative inline-flex h-2 w-2 rounded-full bg-emerald-400" />
@@ -282,7 +281,7 @@ export default function HomePage() {
                 Software Engineer · Applied AI
               </div>
 
-              <p className="mb-4 text-sm font-medium tracking-wide text-slate-400">
+              <p className="mb-4 text-sm font-medium tracking-wide text-slate-600 dark:text-slate-400">
                 Hi, I&apos;m Kartik Patil.
               </p>
 
@@ -295,7 +294,7 @@ export default function HomePage() {
                 </span>
               </h1>
 
-              <p className="mt-7 max-w-xl text-base leading-8 text-slate-300 sm:text-lg">
+              <p className="mt-7 max-w-xl text-base leading-8 text-slate-600 dark:text-slate-300 sm:text-lg">
                 I build web applications, explore AI-powered workflows, and
                 work with blockchain data. I&apos;m focused on turning practical
                 ideas into useful, well-engineered software.
@@ -312,19 +311,19 @@ export default function HomePage() {
 
                 <a
                   href="mailto:kartikpatil1006@gmail.com"
-                  className="inline-flex items-center gap-3 rounded-xl border border-white/15 bg-white/[0.04] px-6 py-3.5 font-semibold text-white transition duration-300 hover:-translate-y-1 hover:border-white/30 hover:bg-white/[0.08]"
+                  className="inline-flex items-center gap-3 rounded-xl border border-slate-300 bg-white/70 px-6 py-3.5 font-semibold text-slate-800 transition duration-300 hover:-translate-y-1 hover:border-blue-400 hover:bg-blue-50 dark:border-white/15 dark:bg-white/[0.04] dark:text-white dark:hover:border-white/30 dark:hover:bg-white/[0.08]"
                 >
                   <FaEnvelope />
                   Get in touch
                 </a>
               </div>
 
-              <div className="mt-10 flex flex-wrap items-center gap-x-6 gap-y-3 text-sm text-slate-400">
+              <div className="mt-10 flex flex-wrap items-center gap-x-6 gap-y-3 text-sm text-slate-600 dark:text-slate-400">
                 <a
                   href="https://github.com/Kartikp12"
                   target="_blank"
                   rel="noreferrer"
-                  className="inline-flex items-center gap-2 transition hover:text-white"
+                  className="inline-flex items-center gap-2 text-slate-600 transition hover:text-blue-600 dark:text-slate-400 dark:hover:text-white"
                 >
                   <FaGithub className="text-lg" />
                   GitHub
@@ -335,14 +334,14 @@ export default function HomePage() {
                   href="https://www.linkedin.com/"
                   target="_blank"
                   rel="noreferrer"
-                  className="inline-flex items-center gap-2 transition hover:text-white"
+                  className="inline-flex items-center gap-2 text-slate-600 transition hover:text-blue-600 dark:text-slate-400 dark:hover:text-white"
                 >
                   <FaLinkedin className="text-lg" />
                   LinkedIn
                   <FaExternalLinkAlt className="text-[10px]" />
                 </a>
 
-                <span className="hidden h-4 w-px bg-white/20 sm:block" />
+                <span className="hidden h-4 w-px bg-slate-300 dark:bg-white/20 sm:block" />
                 <span>India · Open to learning and collaboration</span>
               </div>
             </div>
@@ -351,7 +350,7 @@ export default function HomePage() {
           <a
             href="#projects"
             aria-label="Scroll to projects"
-            className="absolute bottom-6 left-1/2 hidden -translate-x-1/2 animate-bounce text-slate-500 transition hover:text-white sm:block"
+            className="absolute bottom-6 left-1/2 hidden -translate-x-1/2 animate-bounce text-slate-500 transition hover:text-blue-600 dark:hover:text-white sm:block"
           >
             <span className="text-xs uppercase tracking-[0.2em]">Scroll</span>
             <FaArrowRight className="mx-auto mt-2 rotate-90" />
@@ -456,7 +455,7 @@ export default function HomePage() {
         </section>
 
         {/* Skills */}
-        <section className="border-y border-slate-200 bg-slate-50 px-5 py-24 dark:border-white/[0.06] dark:bg-[#0A101C] sm:px-8 lg:px-12 lg:py-28">
+        <section className="border-y border-slate-200 bg-slate-50 px-5 py-24 transition-colors duration-300 dark:border-white/[0.06] dark:bg-[#0A101C] sm:px-8 lg:px-12 lg:py-28">
           <div className="mx-auto max-w-7xl">
             <SectionLabel>What I work with</SectionLabel>
 
@@ -507,7 +506,7 @@ export default function HomePage() {
         </section>
 
         {/* About */}
-        <section className="px-5 py-24 sm:px-8 lg:px-12 lg:py-28">
+        <section className="px-5 py-24 transition-colors duration-300 sm:px-8 lg:px-12 lg:py-28">
           <div className="mx-auto grid max-w-7xl gap-12 lg:grid-cols-[0.8fr_1.2fr] lg:gap-20">
             <div>
               <SectionLabel>A little about me</SectionLabel>
@@ -536,19 +535,19 @@ export default function HomePage() {
               </p>
 
               <div className="grid gap-4 pt-3 sm:grid-cols-2">
-                <div className="rounded-xl border border-slate-200 p-5 dark:border-white/10">
+                <div className="rounded-xl border border-slate-200 p-5 transition-colors dark:border-white/10">
                   <FaLayerGroup className="mb-3 text-xl text-blue-600 dark:text-blue-400" />
                   <h3 className="font-semibold">Build with purpose</h3>
-                  <p className="mt-2 text-sm leading-6">
+                  <p className="mt-2 text-sm leading-6 text-slate-600 dark:text-slate-400">
                     Focus on useful features, clear architecture, and a good
                     user experience.
                   </p>
                 </div>
 
-                <div className="rounded-xl border border-slate-200 p-5 dark:border-white/10">
+                <div className="rounded-xl border border-slate-200 p-5 transition-colors dark:border-white/10">
                   <FaCode className="mb-3 text-xl text-blue-600 dark:text-blue-400" />
                   <h3 className="font-semibold">Learn by building</h3>
-                  <p className="mt-2 text-sm leading-6">
+                  <p className="mt-2 text-sm leading-6 text-slate-600 dark:text-slate-400">
                     Explore new ideas through working prototypes, iteration,
                     and practical experiments.
                   </p>
@@ -563,7 +562,7 @@ export default function HomePage() {
           id="contact"
           className="relative overflow-hidden px-5 pb-24 sm:px-8 lg:px-12 lg:pb-32"
         >
-          <div className="relative mx-auto max-w-7xl overflow-hidden rounded-3xl bg-[#0B1220] px-6 py-16 text-white sm:px-12 sm:py-20 lg:px-16">
+          <div className="relative mx-auto max-w-7xl overflow-hidden rounded-3xl border border-slate-200 bg-white px-6 py-16 text-slate-900 shadow-xl shadow-slate-200/40 transition-colors duration-300 dark:border-white/10 dark:bg-[#0B1220] dark:text-white dark:shadow-black/20 sm:px-12 sm:py-20 lg:px-16">
             <div className="absolute -right-16 -top-24 h-72 w-72 rounded-full bg-blue-500/20 blur-3xl" />
             <div className="absolute -bottom-32 left-1/4 h-64 w-64 rounded-full bg-violet-500/10 blur-3xl" />
 
@@ -573,7 +572,7 @@ export default function HomePage() {
                 <h2 className="text-3xl font-bold leading-tight sm:text-4xl lg:text-5xl">
                   Have an interesting problem to solve?
                 </h2>
-                <p className="mt-5 max-w-xl leading-7 text-slate-300">
+                <p className="mt-5 max-w-xl leading-7 text-slate-600 dark:text-slate-300">
                   I&apos;m interested in thoughtful engineering, useful AI
                   applications, and opportunities to learn through building.
                   Let&apos;s connect.

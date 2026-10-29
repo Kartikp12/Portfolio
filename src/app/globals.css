@@ -107,8 +107,25 @@ svg {
       rgba(124, 58, 237, 0.12),
       transparent 35%
     ),
+    #f4f7ff;
+}
+
+.dark .home-hero {
+  background:
+    radial-gradient(
+      ellipse at 20% 45%,
+      rgba(37, 99, 235, 0.12),
+      transparent 40%
+    ),
+    radial-gradient(
+      ellipse at 80% 15%,
+      rgba(124, 58, 237, 0.12),
+      transparent 35%
+    ),
     #080d19;
 }
+
+
 
 .hero-grid {
   position: absolute;
@@ -368,20 +385,31 @@ svg {
 ===================================================== */
 
 .ai-floating-card {
-  position: absolute;
-  z-index: 5;
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  max-width: 210px;
-  padding: 11px 13px;
-  border: 1px solid rgba(148, 163, 184, 0.2);
-  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.9);
+  border-color: rgba(148, 163, 184, 0.3);
+  box-shadow: 0 14px 35px rgba(15, 23, 42, 0.1);
+}
+
+.ai-floating-card strong {
+  color: #1e293b;
+}
+
+.ai-floating-card small {
+  color: #64748b;
+}
+
+.dark .ai-floating-card {
   background: rgba(10, 17, 31, 0.86);
+  border-color: rgba(148, 163, 184, 0.2);
   box-shadow: 0 14px 35px rgba(0, 0, 0, 0.22);
-  backdrop-filter: blur(14px);
-  -webkit-backdrop-filter: blur(14px);
-  animation: cardFloat 5s ease-in-out infinite;
+}
+
+.dark .ai-floating-card strong {
+  color: #e2e8f0;
+}
+
+.dark .ai-floating-card small {
+  color: #94a3b8;
 }
 
 .ai-floating-card strong {
