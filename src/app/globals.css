@@ -991,4 +991,241 @@ svg {
     .home-hero .hero-copy {
       width: 100%;
     }
+
+/* =====================================================
+   PREMIUM LIGHT THEME — LIGHT MODE ONLY
+   Existing dark theme remains unchanged.
+===================================================== */
+
+.light body {
+  background: #f7f8fc;
+  color: #172033;
+}
+
+.light .home-hero {
+  background:
+    radial-gradient(
+      ellipse at 8% 15%,
+      rgba(96, 165, 250, 0.2),
+      transparent 38%
+    ),
+    radial-gradient(
+      ellipse at 88% 18%,
+      rgba(167, 139, 250, 0.2),
+      transparent 35%
+    ),
+    radial-gradient(
+      ellipse at 55% 100%,
+      rgba(125, 211, 252, 0.12),
+      transparent 40%
+    ),
+    linear-gradient(135deg, #fbfcff 0%, #f2f5ff 52%, #faf7ff 100%);
+}
+
+.light .home-hero .hero-grid {
+  opacity: 0.42;
+  background-image:
+    linear-gradient(rgba(71, 85, 105, 0.065) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(71, 85, 105, 0.065) 1px, transparent 1px);
+  mask-image: linear-gradient(to bottom, black, transparent 85%);
+  -webkit-mask-image: linear-gradient(to bottom, black, transparent 85%);
+}
+
+.light .home-hero .hero-orb {
+  opacity: 0.15;
+}
+
+.light .home-hero .hero-copy h1 {
+  color: #172033;
+}
+
+.light .home-hero .hero-copy > p {
+  color: #526078;
+}
+
+.light .home-hero .hero-copy > div:last-child {
+  color: #64748b;
+}
+
+.light .home-hero .hero-copy a:not(:first-child) {
+  text-decoration-color: transparent;
+}
+
+.light .home-hero .ai-visual {
+  filter: drop-shadow(0 20px 40px rgba(67, 89, 150, 0.08));
+}
+
+.light .home-hero .ai-floating-card {
+  border-color: rgba(148, 163, 184, 0.32);
+  background: rgba(255, 255, 255, 0.88);
+  box-shadow:
+    0 14px 35px rgba(51, 65, 100, 0.08),
+    inset 0 1px 0 rgba(255, 255, 255, 0.9);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+}
+
+.light .home-hero .ai-floating-card strong {
+  color: #1e293b;
+}
+
+.light .home-hero .ai-floating-card small {
+  color: #64748b;
+}
+
+.light .home-hero .ai-orbit {
+  border-color: rgba(99, 102, 241, 0.25);
+}
+
+.light .home-hero .ai-orbit-two {
+  border-color: rgba(139, 92, 246, 0.27);
+}
+
+.light .home-hero .ai-orbit-three {
+  border-color: rgba(59, 130, 246, 0.2);
+}
+
+.light .home-hero .orbit-node {
+  border-color: #f8faff;
+}
+
+.light .home-hero .ai-crosshair {
+  opacity: 0.16;
+}
+
+.light .home-hero .ai-core-halo {
+  opacity: 0.3;
+}
+
+.light .home-hero .ai-status-pill {
+  box-shadow: 0 8px 24px rgba(16, 185, 129, 0.08);
+}
+
+.light .home-hero .ai-spark {
+  filter: drop-shadow(0 2px 8px rgba(99, 102, 241, 0.16));
+}
+
+/* Page surfaces */
+
+.light main {
+  background-color: #f8f9fd;
+}
+
+.light #projects {
+  background:
+    radial-gradient(ellipse at 0% 10%, rgba(96, 165, 250, 0.055), transparent 32%),
+    #f8f9fd;
+}
+
+.light #projects .project-card {
+  border-color: #e4e8f1;
+  background: linear-gradient(145deg, #ffffff 0%, #fdfdff 100%);
+  box-shadow: 0 5px 20px rgba(30, 41, 59, 0.025);
+  transition:
+    transform 250ms ease,
+    border-color 250ms ease,
+    box-shadow 250ms ease;
+}
+
+.light #projects .project-card:hover {
+  border-color: rgba(99, 102, 241, 0.38);
+  box-shadow:
+    0 20px 45px rgba(51, 65, 120, 0.075),
+    0 4px 12px rgba(51, 65, 120, 0.035);
+}
+
+.light #projects .project-card > div:first-child > div {
+  background: linear-gradient(135deg, #eaf1ff, #f1eaff);
+}
+
+.light #projects .project-card > div:nth-last-child(2) span {
+  border-color: #e7eaf3;
+  background: #f7f8fc;
+  color: #536078;
+}
+
+.light #projects .project-card > div:last-child {
+  border-color: #e9ecf3;
+}
+
+/* Skills section */
+
+.light main > section.border-y {
+  border-color: #e8ebf3;
+  background:
+    radial-gradient(ellipse at 100% 0%, rgba(167, 139, 250, 0.08), transparent 34%),
+    linear-gradient(180deg, #f1f4fb 0%, #f6f7fc 100%);
+}
+
+.light main > section.border-y > div > div.grid > div {
+  border-color: #e5e9f2;
+  background: rgba(255, 255, 255, 0.84);
+  box-shadow: 0 8px 28px rgba(30, 41, 59, 0.025);
+}
+
+.light main > section.border-y > div > div.grid > div:hover {
+  border-color: rgba(99, 102, 241, 0.36);
+  box-shadow: 0 16px 35px rgba(51, 65, 120, 0.06);
+}
+
+.light main > section.border-y > div > div.grid > div > div:first-child {
+  background: linear-gradient(135deg, #e7efff, #f0e9ff);
+}
+
+/* About section */
+
+.light main > section.px-5.py-24 {
+  background:
+    radial-gradient(ellipse at 85% 40%, rgba(129, 140, 248, 0.055), transparent 32%),
+    #fbfcff;
+}
+
+.light main > section.px-5.py-24 .grid > div > div.rounded-xl {
+  border-color: #e5e9f2;
+  background: rgba(255, 255, 255, 0.78);
+  box-shadow: 0 6px 22px rgba(30, 41, 59, 0.025);
+}
+
+/* Contact section */
+
+.light #contact > div {
+  border-color: #e1e7f4;
+  background:
+    radial-gradient(ellipse at 100% 0%, rgba(167, 139, 250, 0.16), transparent 38%),
+    radial-gradient(ellipse at 0% 100%, rgba(96, 165, 250, 0.14), transparent 42%),
+    linear-gradient(135deg, #ffffff 0%, #f2f5ff 100%);
+  box-shadow: 0 24px 65px rgba(45, 57, 100, 0.075);
+}
+
+.light #contact > div > div:first-child {
+  opacity: 0.65;
+}
+
+/* Smooth transitions for theme-sensitive surfaces */
+
+.light #projects .project-card,
+.light main > section.border-y > div > div.grid > div,
+.light main > section.px-5.py-24 .grid > div > div.rounded-xl,
+.light #contact > div {
+  transition:
+    background-color 250ms ease,
+    border-color 250ms ease,
+    box-shadow 250ms ease,
+    transform 250ms ease;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .light #projects .project-card,
+  .light main > section.border-y > div > div.grid > div,
+  .light main > section.px-5.py-24 .grid > div > div.rounded-xl,
+  .light #contact > div {
+    transition: none;
+  }
+}
+
+
+
+
+
+
   }
