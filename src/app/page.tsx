@@ -63,6 +63,18 @@ const projects = [
     github: '',
     demo: 'https://bubblemaps-xdc.vercel.app/',
   },
+  {
+    number: '05',
+    title: 'Triply',
+    category: 'AI APPLICATION · TRAVEL TECH',
+    description:
+      'An AI-powered travel planning application that helps users create personalized trips based on their destination, duration, travellers, and budget, with AI-generated itineraries and an interactive planning experience.',
+    tags: ['Next.js', 'Tailwind CSS', 'Firebase', 'AI Travel'],
+    icon: <FaLayerGroup />,
+    accent: 'blue',
+    github: 'https://github.com/Kartikp12/Triply',
+    demo: 'https://triply-sepia.vercel.app/',
+  },
 ]
 
 const skillGroups = [
